@@ -28,3 +28,9 @@ loteria:
     tamanho-thread: 100000
 #    quantidade-jogos: 100
     quantidade-jogos: 15403141
+  dupla:
+    tamanho-thread: 10
+    quantidade-jogos: 100
+  lotofacil:
+    tamanho-thread: 10
+    quantidade-jogos: 100

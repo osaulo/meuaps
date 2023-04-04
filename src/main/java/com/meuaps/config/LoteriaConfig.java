@@ -2,11 +2,13 @@ package com.meuaps.config;
 
 public interface LoteriaConfig {
 
-    public Integer getUniversoJogo();
+    Integer getUniversoJogo();
 
-    public Integer getTamanhoJogo();
+    Integer getTamanhoJogo();
 
-    public Integer getThreadSize();
+    Integer getThreadSize();
 
-    public Long getQtdJogos();
+    Long getQtdJogos();
+
+    String getType();
 }

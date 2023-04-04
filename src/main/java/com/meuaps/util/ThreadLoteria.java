@@ -1,10 +1,10 @@
 package com.meuaps.util;
 
 import com.meuaps.config.LoteriaConfig;
-import com.meuaps.document.MegaSenaDocument;
-import com.meuaps.repository.LoteriaMegaSenaRepository;
+import com.meuaps.document.LoteriaDocument;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Arrays;
 
@@ -14,19 +14,18 @@ public class ThreadLoteria extends Thread {
 
     private LoteriaConfig loteriaConfig;
 
-    private LoteriaMegaSenaRepository loteriaMegaSenaRepository;
+    private MongoRepository mongoRepository;
 
-    public ThreadLoteria(LoteriaConfig loteriaConfig, LoteriaMegaSenaRepository loteriaMegaSenaRepository) {
+    public ThreadLoteria(LoteriaConfig loteriaConfig, MongoRepository mongoRepository) {
         this.loteriaConfig = loteriaConfig;
-        this.loteriaMegaSenaRepository = loteriaMegaSenaRepository;
+        this.mongoRepository = mongoRepository;
     }
 
     public void run(){
         for (int i = 0; loteriaConfig.getThreadSize() > i; i++) {
-            MegaSenaDocument megaSenaDocument = new MegaSenaDocument(LoteriaUtil.gerarJogo(loteriaConfig.getTamanhoJogo(),
-                    loteriaConfig.getUniversoJogo()));
-            loteriaMegaSenaRepository.save(megaSenaDocument);
-            log.info(Arrays.toString(megaSenaDocument.getNumeros().toArray()));
+            LoteriaDocument document = LoteriaUtil.gerarJogo(loteriaConfig);
+            mongoRepository.save(document);
+            log.info(Arrays.toString(document.getNumeros().toArray()));
         }
     }
 }

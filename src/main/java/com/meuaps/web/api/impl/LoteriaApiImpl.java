@@ -24,4 +24,35 @@ public class LoteriaApiImpl implements LoteriaApi {
                 .status(HttpStatus.OK)
                 .body(jogoDtoList);
     }
+
+    @Override
+    public void gerarMegaSenaNumeros() {
+        loteriaService.gerarMegaSenaNumeros();
+    }
+
+    @Override
+    public ResponseEntity<List<JogoDto>> getLotoFacilNumeros() {
+        List<JogoDto> jogoDtoList = loteriaService.getLotoFacilNumeros();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(jogoDtoList);
+    }
+
+    @Override
+    public void gerarLotoFacilNumeros() {
+        loteriaService.gerarLotoFacilNumeros();
+    }
+
+    @Override
+    public ResponseEntity<List<JogoDto>> getDuplaNumeros() {
+        List<JogoDto> jogoDtoList = loteriaService.getDuplaNumeros();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(jogoDtoList);
+    }
+
+    @Override
+    public void gerarDuplaNumeros() {
+        loteriaService.gerarDuplaNumeros();
+    }
 }

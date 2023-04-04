@@ -8,18 +8,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("megaSenaConfig")
+@Qualifier("lotofacilConfig")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class MegaSenaConfig implements LoteriaConfig {
+public class LotofacilConfig implements LoteriaConfig {
 
-    @Value("${loteria.megasena.tamanho-thread}")
+    @Value("${loteria.lotofacil.tamanho-thread}")
     private Integer threadSize;
 
-    @Value("${loteria.megasena.quantidade-jogos}")
+    @Value("${loteria.lotofacil.quantidade-jogos}")
     private Long qtdJogos;
 
-    private Integer universoJogo = 60;
-    private Integer tamanhoJogo = 6;
+    private Integer universoJogo = 25;
+    private Integer tamanhoJogo = 15;
 
     @Override
     public Integer getUniversoJogo() {
@@ -43,6 +43,6 @@ public class MegaSenaConfig implements LoteriaConfig {
 
     @Override
     public String getType() {
-        return "MEGASENA";
+        return "LOTOFACIL";
     }
 }

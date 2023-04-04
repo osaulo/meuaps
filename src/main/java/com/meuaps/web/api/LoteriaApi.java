@@ -32,4 +32,59 @@ public interface LoteriaApi {
     @GetMapping("/megasena")
     ResponseEntity<List<JogoDto>> getMegaSenaNumeros();
 
+    @Operation(description = "Gera os números da megasena",
+            summary = "Gera os números da megasena",
+            responses = {
+                    @ApiResponse(content = {
+                            @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = HttpStatus.class)
+                            )}
+                    )})
+    @GetMapping("/megasena/gerar")
+    void gerarMegaSenaNumeros();
+
+    @Operation(description = "Retorna os números da lotofacil",
+            summary = "Retorna os números da lotofacil",
+            responses = {
+                    @ApiResponse(content = {
+                            @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = HttpStatus.class)
+                            )}
+                    )})
+    @GetMapping("/lotofacil")
+    ResponseEntity<List<JogoDto>> getLotoFacilNumeros();
+
+    @Operation(description = "Gera os números da lotofacil",
+            summary = "Gera os números da lotofacil",
+            responses = {
+                    @ApiResponse(content = {
+                            @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = HttpStatus.class)
+                            )}
+                    )})
+    @GetMapping("/lotofacil/gerar")
+    void gerarLotoFacilNumeros();
+
+    @Operation(description = "Retorna os números da duplasena",
+            summary = "Retorna os números da duplasena",
+            responses = {
+                    @ApiResponse(content = {
+                            @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = HttpStatus.class)
+                            )}
+                    )})
+    @GetMapping("/dupla")
+    ResponseEntity<List<JogoDto>> getDuplaNumeros();
+
+    @Operation(description = "Gera os números da duplasena",
+            summary = "Gera os números da duplasena",
+            responses = {
+                    @ApiResponse(content = {
+                            @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    schema = @Schema(implementation = HttpStatus.class)
+                            )}
+                    )})
+    @GetMapping("/dupla/gerar")
+    void gerarDuplaNumeros();
+
 }
